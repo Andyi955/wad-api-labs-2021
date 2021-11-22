@@ -2,6 +2,7 @@ import userModel from '../api/users/userModel';
 import users from './users';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
 
 // deletes all user documents in collection and inserts test data
