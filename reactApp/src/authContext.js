@@ -37,7 +37,6 @@ const AuthContextProvider = (props) => {
   return (
     <AuthContext.Provider
       value={{
-        authToken,
         isAuthenticated,
         authenticate,
         register,
