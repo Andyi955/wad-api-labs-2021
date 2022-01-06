@@ -4,8 +4,9 @@ import uniqid from 'uniqid';
 import movieModel from './movieModel';
 import asyncHandler from 'express-async-handler';
 import { getUpcomingMovies } from '../tmdb-api';
-  
-
+import { getMovies } from '../tmdb-api';
+import { getPopularActors } from '../tmdb-api';
+import { getActor } from '../tmdb-api';
 
 const router = express.Router(); 
 router.get('/', asyncHandler(async (req, res) => {
@@ -68,5 +69,25 @@ router.get('/tmdb/upcoming', asyncHandler( async(req, res) => {
     const upcomingMovies = await getUpcomingMovies();
     res.status(200).json(upcomingMovies);
   }));
+
+
+  router.get('/tmdb/discover', asyncHandler( async(req, res) => {
+    const discoverMovies = await getMovies();
+    res.status(200).json(discoverMovies);
+  }));
+
+  router.get('/popular/actors', asyncHandler( async(req, res) => {
+    const popularActors = await getPopularActors();
+    res.status(200).json(popularActors);
+  }));
+
+//   router.get('/actor/:id', asyncHandler(async (req, res) => {
+//     const actorDeatils = await getActor();
+//     res.status(200).json(actorDeatils);
+    
+// }));
+
+
+
 
 export default router;

@@ -27,7 +27,6 @@ const MoviesContextProvider = props => {
     <MoviesContext.Provider
       value={{
         movies: state.movies,
-        authenticated,
         setAuthenticated
       }}
     >
